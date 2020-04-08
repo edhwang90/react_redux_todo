@@ -27,6 +27,8 @@ class App extends Component {
   }
 }
 
-export default connect(
-  (state) => ({message: state.message.message, isError: state.message.isError})
-)(App);
+// export default connect(
+//   (state) => ({message: state.message.message, isError: state.message.isError})
+// )(App);
+
+export default App;

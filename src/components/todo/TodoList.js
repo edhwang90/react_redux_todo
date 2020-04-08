@@ -39,8 +39,3 @@ export default connect (
   (state) => ({ todos: state.todo.todos }),
   { fetchTodos, toggleTodo, destroyTodo }
 )(TodoList);
-
-// export default connect(
-//   (state, ownProps) => ({todos: getVisibleTodos(state.todo.todos, ownProps.filter)}),
-//   {fetchTodos, toggleTodo, deleteTodo}
-// )(TodoList)

@@ -8,10 +8,10 @@ export const hideMessage = () => ({ type: MESSAGE_REMOVE, payload: '' });
 export const showMessage = (msg) => {
   return (dispatch) => {
     dispatch(displayMessage(msg));
-    
+
     setTimeout(() => {
       dispatch(hideMessage());
-    }, 3000)
+    }, 5000)
   }
 }
 
