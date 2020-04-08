@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { TodoItem } from './TodoItem';
 import { fetchTodos, toggleTodo, destroyTodo } from '../../reducers/Todo';
 
-//import { fetchTodos, toggleTodo, deleteTodo, getVisibleTodos } from '../../reducers/todo';
-
 import './index.scss';
 
 class TodoList extends Component {

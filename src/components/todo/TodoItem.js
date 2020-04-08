@@ -2,7 +2,7 @@ import React from 'react';
 import { Checkbox } from '../checkbox/Checkbox';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const TodoItem = (props) => {
   const { id, name, isComplete, toggleTodo, destroyTodo } = props;

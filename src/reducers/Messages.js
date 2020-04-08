@@ -2,37 +2,44 @@ const MESSAGE_SUCCESS = 'MESSAGE_SUCCESS';
 const MESSAGE_ERROR = 'MESSAGE_ERROR';
 const MESSAGE_REMOVE = 'MESSAGE_REMOVE';
 
-export const displayMessage = (msg) => ({ type: msg.isError ? MESSAGE_ERROR : MESSAGE_SUCCESS, payload: msg.text });
-export const hideMessage = () => ({ type: MESSAGE_REMOVE, payload: '' });
+const initState = {
+  messages: []
+};
+
+const generateId = () => Math.floor(Math.random()*10000);
+
+export const displayMessage = (msg) => ({ type: msg.isError ? MESSAGE_ERROR : MESSAGE_SUCCESS, payload: msg});
+export const destroyMessage = (id) => ({ type: MESSAGE_REMOVE, payload: id });
 
 export const showMessage = (msg) => {
+  const newMessage = { id: generateId(), text: msg.text, isError: msg.isError }
+  
   return (dispatch) => {
-    dispatch(displayMessage(msg));
+    dispatch(displayMessage(newMessage));
 
     setTimeout(() => {
-      dispatch(hideMessage());
-    }, 5000)
+      dispatch(destroyMessage(newMessage.id));
+    }, 2500)
   }
 }
 
-export default (state = { message: '', isError: true }, action) => {
+export const hideMessage = (id) => {
+  return (dispatch) => {
+    dispatch(destroyMessage(id));
+  }
+}
+
+export default (state = initState, action) => {
   switch (action.type) {
     case MESSAGE_SUCCESS:
       return {
         ...state,
-        message: action.payload,
-        isError: false
-      }
-    case MESSAGE_ERROR:
-      return {
-        ...state,
-        message: action.payload,
-        isError: true
+        messages: [...state.messages, action.payload]
       }
     case MESSAGE_REMOVE:
       return {
         ...state,
-        message: ''
+        messages: state.messages.filter(msg => msg.id !== action.payload)
       }
     default:
       return state;
