@@ -1,0 +1,68 @@
+@import './import.scss';
+
+.app {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.app-content {
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    padding: 20px 30px 30px 0px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 28px;
+  }
+}
+
+.toastr {
+  display: block;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 20px;
+  padding: 10px 15px;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.success {
+  background-color: $success-color;  
+}
+
+.error {
+  background-color: $error-color;
+}
+
+button {
+  background-color: #dedede;
+  border: 0px;
+  outline: none;
+  border-radius: 40%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.btn-default:hover {
+  background-color: $primary-color;
+}
+
+.btn-alt:hover {
+  background-color: $font-color;
+}
+
+.btn-add.ready {
+  background-color: $success-color;
+}
+
+.btn-remove:hover {
+  background-color: $error-color;
+}
+
+.svg-inline--fa {
+  color: $font-alt-color;
+}

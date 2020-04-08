@@ -1,0 +1,49 @@
+@import '../../import.scss';
+
+
+.todo-list, .todo-form, .todo-form > input {
+  width: 100%;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  input[type='text'] {
+    border: 0;
+    outline: none;
+    padding: 10px 17px;
+    background-color: $background-color;
+  }
+}
+
+.todo-row {
+  margin-bottom: 20px;
+  display: flex;
+  position: relative;
+
+  button {
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+  button:last-of-type {
+    margin-right: 0px;
+  }
+
+  label {
+    padding-right: 25px;
+  }
+
+  .action-bar {
+    display: flex;
+  }
+}
+
+.todo-row.isComplete-true {
+  span {
+    text-decoration: line-through;
+    color: #dedede;
+  }
+}
