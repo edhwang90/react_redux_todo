@@ -12,26 +12,11 @@ const TODO_ADD = 'TODO_ADD';
 const TODO_REPLACE = 'TODO_REPLACE';
 const TODO_REMOVE = 'TODO_REMOVE';
 
-
-export const updateCurrent = (val) => {
-  return { type: CURRENT_UPDATE, payload: val};
-}
-
-export const loadTodos = (todos) => {
-  return { type: TODOS_LOAD, payload: todos }
-}
-
-export const addTodo = (todo) => {
-  return { type: TODO_ADD, payload: todo }
-}
-
-export const replaceTodo = (todo) => {
-  return { type: TODO_REPLACE, payload: todo }
-}
-
-export const removeTodo = (id) => {
-  return { type: TODO_REMOVE, payload: id }
-}
+export const updateCurrent = (val) => ({type: CURRENT_UPDATE, payload: val});
+export const loadTodos = (todos) => ({ type: TODOS_LOAD, payload: todos });
+export const addTodo = (todo) => ({ type: TODO_ADD, payload: todo });
+export const replaceTodo = (todo) => ({ type: TODO_REPLACE, payload: todo });
+export const removeTodo = (id) => ({ type: TODO_REMOVE, payload: id });
 
 export const fetchTodos = () => {
   return (dispatch) => {
@@ -70,6 +55,17 @@ export const destroyTodo = (id) => {
       .then(() => dispatch(removeTodo(id)))
       .then(() => dispatch(showMessage({ text: 'Todo deleted', isError: false})))
       .catch((err) => dispatch(showMessage({ text: `${err}`, isError: true})))
+  }
+}
+
+export const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case 'active':
+      return todos.filter(todo => !todo.isComplete);
+    case 'completed':
+      return todos.filter(todo => todo.isComplete);
+    default:
+      return todos;
   }
 }
 

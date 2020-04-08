@@ -5,18 +5,15 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
 
-class Message extends Component {
+const Message = (props) => {
+  const { id, text, isError, hideMessage } = props;
 
-  render () {
-    const { props: { id, text, isError, hideMessage } } = this;
-
-    return (
-      <div className={ isError ? 'toastr error' : 'toastr success'}>
-        <span>{text}</span>
-        <button onClick={() => { hideMessage(id) }}><FontAwesomeIcon icon={faTimes} /></button>
-      </div>
-    )
-  }
+  return (
+    <div className={ isError ? 'toastr error' : 'toastr success'}>
+      <span>{text}</span>
+      <button onClick={() => { hideMessage(id) }}><FontAwesomeIcon icon={faTimes} /></button>
+    </div>
+  )
 }
 
 export default Message;

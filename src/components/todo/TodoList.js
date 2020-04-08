@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TodoItem } from './TodoItem';
-import { fetchTodos, toggleTodo, destroyTodo } from '../../reducers/Todo';
+import { fetchTodos, toggleTodo, destroyTodo, getVisibleTodos } from '../../reducers/Todo';
 
 import './index.scss';
 
@@ -34,6 +34,6 @@ class TodoList extends Component {
 }
 
 export default connect (
-  (state) => ({ todos: state.todo.todos }),
+  (state, ownProps) => ({ todos: getVisibleTodos(state.todo.todos, ownProps.filter) }),
   { fetchTodos, toggleTodo, destroyTodo }
 )(TodoList);

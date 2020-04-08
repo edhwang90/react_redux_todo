@@ -1,14 +1,13 @@
-const MESSAGE_SUCCESS = 'MESSAGE_SUCCESS';
-const MESSAGE_ERROR = 'MESSAGE_ERROR';
-const MESSAGE_REMOVE = 'MESSAGE_REMOVE';
-
 const initState = {
   messages: []
 };
 
+const MESSAGE_DISPLAY = 'MESSAGE_DISPLAY';
+const MESSAGE_REMOVE = 'MESSAGE_REMOVE';
+
 const generateId = () => Math.floor(Math.random()*10000);
 
-export const displayMessage = (msg) => ({ type: msg.isError ? MESSAGE_ERROR : MESSAGE_SUCCESS, payload: msg});
+export const displayMessage = (msg) => ({ type: MESSAGE_DISPLAY, payload: msg});
 export const destroyMessage = (id) => ({ type: MESSAGE_REMOVE, payload: id });
 
 export const showMessage = (msg) => {
@@ -31,10 +30,10 @@ export const hideMessage = (id) => {
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case MESSAGE_SUCCESS:
+    case MESSAGE_DISPLAY:
       return {
         ...state,
-        messages: [...state.messages, action.payload]
+        messages: [action.payload, ...state.messages]
       }
     case MESSAGE_REMOVE:
       return {

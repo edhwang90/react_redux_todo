@@ -1,4 +1,4 @@
-const env = 'http://localhost:8080/todos';
+const env = process.env.REACT_APP_BASE_URL;
 
 export const getTodos = () => {
   return fetch(env)
