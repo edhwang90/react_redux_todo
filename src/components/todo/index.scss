@@ -1,7 +1,6 @@
 @import '../../import.scss';
 
-
-.todo-list, .todo-form, .todo-form > input {
+.todo-list {
   width: 100%;
 }
 
@@ -39,6 +38,10 @@
   .action-bar {
     display: flex;
   }
+}
+
+.todo-row:last-of-type {
+  margin-bottom: 0px;
 }
 
 .todo-row.isComplete-true {

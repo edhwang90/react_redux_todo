@@ -16,9 +16,9 @@ class MessageList extends Component {
     });
 
     return (
-      <div className="messages-list">
+      <ul className="messages-list">
         {messagesList}
-      </div>
+      </ul>
     )
   }
 }

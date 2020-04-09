@@ -5,6 +5,7 @@ import { updateCurrent, saveTodo } from '../../reducers/Todo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import './index.scss';
 
 class TodoForm extends Component {
 
