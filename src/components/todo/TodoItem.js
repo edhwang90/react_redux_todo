@@ -12,7 +12,8 @@ export const TodoItem = (props) => {
       <Checkbox toggleProp={isComplete}
                 label={name}
                 id={id}
-                handleToggle={() => { toggleTodo(id) }}>
+                data={id}
+                handleToggle={toggleTodo}>
       </Checkbox>
 
       <div className="action-bar">
